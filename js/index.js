@@ -102,14 +102,30 @@ if (productBasket) {
       })
     }
 
-    function counterPlusElem(plus) {
+    let total = document.querySelector('.total__number');
+    let cost = document.querySelectorAll(".product__cost");
+    var sum = 0;
+    for(var i = 0; i < cost.length; i++) {
+      sum += Number(cost[i].innerHTML);
+      
+    }
+    total.innerHTML = sum;
+  
 
-      var clickPlus = plus.previousElementSibling
-      var  click = clickPlus.innerHTML++;
+    function counterPlusElem(plus) {
+      plus.previousElementSibling.innerHTML++
       var summ = plus.parentNode.parentNode.childNodes[3].innerHTML
-      var summProduct = summ+summ
+      var price = plus.parentNode.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML
+      var price = Number(price)
+      var summ = Number(summ)
+      var summProduct = summ+price
       plus.parentNode.parentNode.childNodes[3].innerHTML = summProduct
-      // console.log(summ.innerHTML = summProduct);
+
+      var sum = 0;
+      for(var i = 0; i < cost.length; i++) {
+        sum += Number(cost[i].innerHTML);
+      }
+      total.innerHTML = sum;
     };
 
     function counterMinusElem(minus) {
@@ -117,6 +133,18 @@ if (productBasket) {
       clickMinus.innerHTML--;
         if ( clickMinus.innerHTML < 1) {
           clickMinus.innerHTML = 1
+        }
+        var summ = minus.parentNode.parentNode.childNodes[3].innerHTML
+        var price = minus.parentNode.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML
+        var price = Number(price)
+        var summ = Number(summ)
+        if (total.innerHTML > sum) {
+          var ravno = total.innerHTML-price
+          total.innerHTML = ravno;
+        }
+        if (summ > price) {
+          var summProduct = summ-price
+          minus.parentNode.parentNode.childNodes[3].innerHTML = summProduct
         }
     };
 
