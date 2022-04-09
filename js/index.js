@@ -1,6 +1,7 @@
 
 const product = [
   {
+    head: "",
     img: "./img/Image.png",
     title: "Apple BYZ S852I",
     price: "20",
@@ -8,6 +9,7 @@ const product = [
     id: "1",
   },
   {
+    head: "",
     img: "./img/Image.png",
     title: "Apple BYZ S852I",
     price: "10",
@@ -15,6 +17,7 @@ const product = [
     id: "2",
   },
   {
+    head: "",
     img: "./img/Image.png",
     title: "Apple BYZ S852I",
     price: "30",
@@ -22,6 +25,7 @@ const product = [
     id: "3",
   },
   {
+    head: "Беспроводные наушники",
     img: "./img/Image.png",
     title: "Apple BYZ S852I",
     price: "40",
@@ -52,8 +56,9 @@ product.forEach((productList) => {
     <div class='product__rate'>"+ productList.rate +"</div>\
     <div class='product__button' data-id="+ productList.id +" onclick='count(this)'>Купить</div>\
     </div>\
-  </div>"
-
+  </div>\
+  </div>\
+  <div class='product__head'>"+ productList.head +"</div>"
 })
 }
 
